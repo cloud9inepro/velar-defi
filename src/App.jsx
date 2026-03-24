@@ -2,9 +2,13 @@ import { useEffect } from 'react'
 import Lenis from 'lenis'
 import Navbar from './components/layout/Navbar'
 import HeroSection from './components/hero/HeroSection'
+import FeaturesSection from './components/features/FeaturesSection'
+import CalculatorSection from './components/calculator/CalculatorSection'
+import TokenomicsSection from './components/tokenomics/TokenomicsSection'
+import RoadmapSection from './components/roadmap/RoadmapSection'
+import PartnersSection from './components/partners/PartnersSection'
 
 function App() {
-  // ─── Lenis Smooth Scroll ────────────────────────────────
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.4,
@@ -19,16 +23,18 @@ function App() {
 
     requestAnimationFrame(raf)
 
-    return () => {
-      lenis.destroy()
-    }
+    return () => lenis.destroy()
   }, [])
 
   return (
-    <main className="relative min-h-screen bg-[#030712] overflow-x-hidden pl-0">
+    <main className="relative min-h-screen bg-[#030712] overflow-x-hidden">
       <Navbar />
       <HeroSection />
-      {/* More sections will be added here later */}
+      <FeaturesSection />
+      <CalculatorSection />
+      <TokenomicsSection />
+      <RoadmapSection />
+      <PartnersSection />
     </main>
   )
 }
